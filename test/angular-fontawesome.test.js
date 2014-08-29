@@ -21,16 +21,16 @@ describe('angular-fontawesome', function () {
   });
 
   describe('string-based attributes', function () {
-    describe('name', function () {
+    describe('icon', function () {
       var elm, scope;
 
       beforeEach(inject(function($rootScope, $compile) {
-        elm = angular.element('<fa name="{{ options.name }}"></fa>');
+        elm = angular.element('<fa icon="{{ options.icon }}"></fa>');
         scope = $rootScope;
         $compile(elm)(scope);
 
         $rootScope.options = $rootScope.options || {};
-        $rootScope.options.name = 'square';
+        $rootScope.options.icon = 'square';
         $rootScope.$digest();
       }));
 
@@ -39,7 +39,7 @@ describe('angular-fontawesome', function () {
       });
 
       it('should be able to change the used icon during the $digest cycle', function () {
-        scope.options.name = 'book';
+        scope.options.icon = 'book';
         scope.$digest();
 
         expect(elm.hasClass('fa-square')).not.toBe(true);
@@ -49,7 +49,7 @@ describe('angular-fontawesome', function () {
 
     describe('size', function () {
       beforeEach(inject(function($rootScope, $compile) {
-        elm = angular.element('<fa name="book" size="{{ options.size }}"></fa>');
+        elm = angular.element('<fa icon="book" size="{{ options.size }}"></fa>');
         scope = $rootScope;
 
         $rootScope.options = $rootScope.options || {};
@@ -82,7 +82,7 @@ describe('angular-fontawesome', function () {
       it('should clear existing classes', function () {
         scope.options.size = 'large';
         scope.$digest();
-        
+
         expect(elm.hasClass('fa-lg')).toBe(true);
 
         scope.options.size = 1;
@@ -105,7 +105,7 @@ describe('angular-fontawesome', function () {
 
     describe('flip', function () {
       beforeEach(inject(function($rootScope, $compile) {
-        elm = angular.element('<fa name="book" flip="{{ options.flip }}"></fa>');
+        elm = angular.element('<fa icon="book" flip="{{ options.flip }}"></fa>');
         scope = $rootScope;
 
         $rootScope.options = $rootScope.options || {};
@@ -144,7 +144,7 @@ describe('angular-fontawesome', function () {
       var elm, scope;
 
       beforeEach(inject(function($rootScope, $compile) {
-        elm = angular.element('<fa name="shield" rotate="{{ options.rotate }}"></fa>');
+        elm = angular.element('<fa icon="shield" rotate="{{ options.rotate }}"></fa>');
         scope = $rootScope;
 
         $rootScope.options = $rootScope.options || {};
@@ -199,7 +199,7 @@ describe('angular-fontawesome', function () {
         var elm, scope;
 
         inject(function($rootScope, $compile) {
-          elm = angular.element('<fa name="loading" spin></fa>');
+          elm = angular.element('<fa icon="loading" spin></fa>');
           scope = $rootScope;
 
           $rootScope.options = $rootScope.options || {};
@@ -217,7 +217,7 @@ describe('angular-fontawesome', function () {
         var elm, scope;
 
         inject(function($rootScope, $compile) {
-          elm = angular.element('<fa name="loading" spin="false"></fa>');
+          elm = angular.element('<fa icon="loading" spin="false"></fa>');
           scope = $rootScope;
           $compile(elm)(scope);
           scope.$digest();
@@ -232,7 +232,7 @@ describe('angular-fontawesome', function () {
         var elm, scope;
 
         inject(function($rootScope, $compile) {
-          elm = angular.element('<fa name="loading" spin="{{ options.loading }}"></fa>');
+          elm = angular.element('<fa icon="loading" spin="{{ options.loading }}"></fa>');
           scope = $rootScope;
 
           $rootScope.options = $rootScope.options || {};
@@ -258,7 +258,7 @@ describe('angular-fontawesome', function () {
         var elm, scope;
 
         inject(function($rootScope, $compile) {
-          elm = angular.element('<fa name="loading" border></fa>');
+          elm = angular.element('<fa icon="loading" border></fa>');
           scope = $rootScope;
 
           $rootScope.options = $rootScope.options || {};
@@ -276,7 +276,7 @@ describe('angular-fontawesome', function () {
         var elm, scope;
 
         inject(function($rootScope, $compile) {
-          elm = angular.element('<fa name="loading" border="false"></fa>');
+          elm = angular.element('<fa icon="loading" border="false"></fa>');
           scope = $rootScope;
           $compile(elm)(scope);
           scope.$digest();
@@ -291,7 +291,7 @@ describe('angular-fontawesome', function () {
         var elm, scope;
 
         inject(function($rootScope, $compile) {
-          elm = angular.element('<fa name="loading" border="{{ options.border }}"></fa>');
+          elm = angular.element('<fa icon="loading" border="{{ options.border }}"></fa>');
           scope = $rootScope;
 
           $rootScope.options = $rootScope.options || {};
@@ -317,7 +317,7 @@ describe('angular-fontawesome', function () {
         var elm, scope;
 
         inject(function($rootScope, $compile) {
-          elm = angular.element('<fa name="square" fw></fa>');
+          elm = angular.element('<fa icon="square" fw></fa>');
           scope = $rootScope;
 
           $rootScope.options = $rootScope.options || {};
@@ -335,7 +335,7 @@ describe('angular-fontawesome', function () {
         var elm, scope;
 
         inject(function($rootScope, $compile) {
-          elm = angular.element('<fa name="square" fw="false"></fa>');
+          elm = angular.element('<fa icon="square" fw="false"></fa>');
           scope = $rootScope;
           $compile(elm)(scope);
           scope.$digest();
@@ -350,7 +350,7 @@ describe('angular-fontawesome', function () {
         var elm, scope;
 
         inject(function($rootScope, $compile) {
-          elm = angular.element('<fa name="square" fw="{{ options.fw }}"></fa>');
+          elm = angular.element('<fa icon="square" fw="{{ options.fw }}"></fa>');
           scope = $rootScope;
 
           $rootScope.options = $rootScope.options || {};
@@ -376,7 +376,7 @@ describe('angular-fontawesome', function () {
         var elm, scope;
 
         inject(function($rootScope, $compile) {
-          elm = angular.element('<fa name="github" inverse></fa>');
+          elm = angular.element('<fa icon="github" inverse></fa>');
           scope = $rootScope;
 
           $rootScope.options = $rootScope.options || {};
@@ -394,7 +394,7 @@ describe('angular-fontawesome', function () {
         var elm, scope;
 
         inject(function($rootScope, $compile) {
-          elm = angular.element('<fa name="github" inverse="false"></fa>');
+          elm = angular.element('<fa icon="github" inverse="false"></fa>');
           scope = $rootScope;
           $compile(elm)(scope);
           scope.$digest();
@@ -409,7 +409,7 @@ describe('angular-fontawesome', function () {
         var elm, scope;
 
         inject(function($rootScope, $compile) {
-          elm = angular.element('<fa name="github" inverse="{{ options.inverse }}"></fa>');
+          elm = angular.element('<fa icon="github" inverse="{{ options.inverse }}"></fa>');
           scope = $rootScope;
 
           $rootScope.options = $rootScope.options || {};
@@ -435,7 +435,7 @@ describe('angular-fontawesome', function () {
         var elm, scope;
 
         inject(function($rootScope, $compile) {
-          elm = angular.element('<fa name="github" lg></fa>');
+          elm = angular.element('<fa icon="github" lg></fa>');
           scope = $rootScope;
 
           $rootScope.options = $rootScope.options || {};
@@ -453,7 +453,7 @@ describe('angular-fontawesome', function () {
         var elm, scope;
 
         inject(function($rootScope, $compile) {
-          elm = angular.element('<fa name="github" lg="false"></fa>');
+          elm = angular.element('<fa icon="github" lg="false"></fa>');
           scope = $rootScope;
           $compile(elm)(scope);
           scope.$digest();
@@ -468,7 +468,7 @@ describe('angular-fontawesome', function () {
         var elm, scope;
 
         inject(function($rootScope, $compile) {
-          elm = angular.element('<fa name="github" lg="{{ options.lg }}"></fa>');
+          elm = angular.element('<fa icon="github" lg="{{ options.lg }}"></fa>');
           scope = $rootScope;
 
           $rootScope.options = $rootScope.options || {};
@@ -503,7 +503,7 @@ describe('angular-fontawesome', function () {
       var elm, scope;
 
       inject(function ($rootScope, $compile) {
-        elm = angular.element('<fa name="{{ options.name }}" ng-class="{\'boom\': options.booming}" ng-style="{\'color\': options.color}"></fa>');
+        elm = angular.element('<fa icon="{{ options.icon }}" ng-class="{\'boom\': options.booming}" ng-style="{\'color\': options.color}"></fa>');
         scope = $rootScope;
         $compile(elm)($rootScope);
         $rootScope.$digest();
@@ -511,7 +511,7 @@ describe('angular-fontawesome', function () {
 
       runs(function () {
         scope.options = scope.options || {};
-        scope.options.name = 'square';
+        scope.options.icon = 'square';
         scope.options.color = 'blue';
         scope.$digest();
 
@@ -520,7 +520,7 @@ describe('angular-fontawesome', function () {
         expect(elm.hasClass('boom')).toBe(false);
         expect(elm.css('color')).toBe('blue');
 
-        scope.options.name = 'envelope';
+        scope.options.icon = 'envelope';
         scope.options.color = 'red';
         scope.options.booming = true;
         scope.$digest();
